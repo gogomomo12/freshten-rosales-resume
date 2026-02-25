@@ -13,7 +13,6 @@ import TabletTaskbar from '../taskbar/TabletTaskbar'
 const ProjectsApp = lazy(() => import('../apps/ProjectsApp'))
 const SkillsMonitorApp = lazy(() => import('../apps/SkillsMonitorApp'))
 const AboutApp = lazy(() => import('../apps/AboutApp'))
-const MusicPlayerApp = lazy(() => import('../apps/MusicPlayerApp'))
 const HobbiesApp = lazy(() => import('../apps/HobbiesApp'))
 const NetworkApp = lazy(() => import('../apps/NetworkApp'))
 const ContactIDEApp = lazy(() => import('../apps/ContactIDEApp'))
@@ -22,7 +21,6 @@ const APP_COMPONENTS: Record<string, React.ComponentType> = {
   projects: ProjectsApp,
   skills: SkillsMonitorApp,
   about: AboutApp,
-  music: MusicPlayerApp,
   hobbies: HobbiesApp,
   network: NetworkApp,
   contact: ContactIDEApp,
@@ -51,8 +49,8 @@ export default function Tablet() {
       {/* Tablet workspace - simplified layout */}
       <div className="absolute inset-0 flex flex-col">
         {/* Top profile section - smaller on tablet */}
-        <div className="flex-1 flex flex-col items-center justify-center gap-6 p-4">
-          <div className="rounded-full overflow-hidden border-4 border-white/20 shadow-xl w-48 h-48">
+        <div className="flex-1 flex flex-col items-center justify-center gap-4 md:gap-6 p-4 overflow-y-auto min-h-0">
+          <div className="rounded-full overflow-hidden border-4 border-white/20 shadow-xl w-36 h-36 md:w-48 md:h-48 shrink-0">
             <Image
               src="/freshten-avatar.jpg"
               alt="Freshten Rosales"
@@ -63,7 +61,7 @@ export default function Tablet() {
             />
           </div>
           <div className="text-center px-4 max-w-md">
-            <p className="text-2xl font-semibold text-slate-800 dark:text-white/90 leading-tight">
+            <p className="text-xl md:text-2xl font-semibold text-slate-800 dark:text-white/90 leading-tight">
               👋 I&apos;m{' '}
               <span className="text-sky-500">Freshten Rosales</span>,{' '}
               Front-End Website Developer and aspiring{' '}

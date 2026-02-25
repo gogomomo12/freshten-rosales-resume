@@ -6,8 +6,8 @@ export const APPS: AppDefinition[] = [
     title: 'Projects.app',
     icon: '🗂️',
     // Center-foreground: visible as focal point over all others on load
-    defaultSize: { width: 700, height: 500 },
-    defaultPosition: { x: 350, y: 170 },
+    defaultSize: { width: 850, height: 600 },
+    defaultPosition: { x: 700, y: 150 }, // Right side
   },
   {
     id: 'skills',
@@ -15,7 +15,7 @@ export const APPS: AppDefinition[] = [
     icon: '📊',
     // Bottom-left quadrant
     defaultSize: { width: 580, height: 440 },
-    defaultPosition: { x: 90, y: 360 },
+    defaultPosition: { x: 110, y: 440 }, // Bottom Left
   },
   {
     id: 'about',
@@ -23,14 +23,7 @@ export const APPS: AppDefinition[] = [
     icon: '📄',
     // Top-left quadrant
     defaultSize: { width: 520, height: 380 },
-    defaultPosition: { x: 90, y: 35 },
-  },
-  {
-    id: 'music',
-    title: 'MusicPlayer.app',
-    icon: '🎵',
-    defaultSize: { width: 320, height: 340 },
-    defaultPosition: { x: 500, y: 200 },
+    defaultPosition: { x: 110, y: 30 }, // Top Left
   },
   {
     id: 'hobbies',
@@ -52,6 +45,6 @@ export const APPS: AppDefinition[] = [
     icon: '⌨️',
     // Top-right quadrant — taller so Run Code button is always fully visible
     defaultSize: { width: 620, height: 560 },
-    defaultPosition: { x: 650, y: 35 },
+    defaultPosition: { x: 740, y: 30 },
   },
 ]

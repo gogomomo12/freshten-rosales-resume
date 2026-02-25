@@ -12,7 +12,6 @@ import MobileTaskbar from '../taskbar/MobileTaskbar'
 const ProjectsApp = lazy(() => import('../apps/ProjectsApp'))
 const SkillsMonitorApp = lazy(() => import('../apps/SkillsMonitorApp'))
 const AboutApp = lazy(() => import('../apps/AboutApp'))
-const MusicPlayerApp = lazy(() => import('../apps/MusicPlayerApp'))
 const HobbiesApp = lazy(() => import('../apps/HobbiesApp'))
 const NetworkApp = lazy(() => import('../apps/NetworkApp'))
 const ContactIDEApp = lazy(() => import('../apps/ContactIDEApp'))
@@ -21,7 +20,6 @@ const APP_COMPONENTS: Record<string, React.ComponentType> = {
   projects: ProjectsApp,
   skills: SkillsMonitorApp,
   about: AboutApp,
-  music: MusicPlayerApp,
   hobbies: HobbiesApp,
   network: NetworkApp,
   contact: ContactIDEApp,
@@ -55,7 +53,7 @@ export default function Mobile() {
         </div>
 
         {/* Main content area */}
-        <div className="flex-1 flex flex-col items-center justify-center p-4">
+        <div className="flex-1 flex flex-col items-center justify-center p-4 overflow-y-auto min-h-0">
           {/* Profile section - compact for mobile */}
           <div className="text-center mb-8">
             <div className="rounded-full overflow-hidden border-3 border-white/20 shadow-lg w-32 h-32 mx-auto mb-4">
@@ -68,7 +66,7 @@ export default function Mobile() {
                 priority
               />
             </div>
-            <p className="text-lg font-semibold text-slate-800 dark:text-white/90 leading-tight px-2">
+            <p className="text-base sm:text-lg font-semibold text-slate-800 dark:text-white/90 leading-tight px-2">
               👋 I&apos;m{' '}
               <span className="text-sky-500">Freshten Rosales</span>,{' '}
               Front-End Developer

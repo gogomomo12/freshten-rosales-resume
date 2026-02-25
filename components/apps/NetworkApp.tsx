@@ -65,9 +65,9 @@ export default function NetworkApp() {
             href={link.href}
             target={link.id !== 'email' ? '_blank' : undefined}
             rel="noopener noreferrer"
-            className={`flex items-center gap-4 p-4 rounded-xl border transition-all group ${colorMap[link.color]}`}
+            className={`flex items-center gap-3 p-3 sm:p-4 rounded-xl border transition-all group ${colorMap[link.color]}`}
           >
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl font-thin shrink-0 bg-white/50 dark:bg-slate-900/30 border border-current/10">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-xl sm:text-2xl font-thin shrink-0 bg-white/50 dark:bg-slate-900/30 border border-current/10">
               {link.icon}
             </div>
             <div className="flex-1 min-w-0">

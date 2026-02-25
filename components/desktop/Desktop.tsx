@@ -13,7 +13,6 @@ import Taskbar from '../taskbar/Taskbar'
 const ProjectsApp = lazy(() => import('../apps/ProjectsApp'))
 const SkillsMonitorApp = lazy(() => import('../apps/SkillsMonitorApp'))
 const AboutApp = lazy(() => import('../apps/AboutApp'))
-const MusicPlayerApp = lazy(() => import('../apps/MusicPlayerApp'))
 const HobbiesApp = lazy(() => import('../apps/HobbiesApp'))
 const NetworkApp = lazy(() => import('../apps/NetworkApp'))
 const ContactIDEApp = lazy(() => import('../apps/ContactIDEApp'))
@@ -22,7 +21,6 @@ const APP_COMPONENTS: Record<string, React.ComponentType> = {
   projects: ProjectsApp,
   skills: SkillsMonitorApp,
   about: AboutApp,
-  music: MusicPlayerApp,
   hobbies: HobbiesApp,
   network: NetworkApp,
   contact: ContactIDEApp,

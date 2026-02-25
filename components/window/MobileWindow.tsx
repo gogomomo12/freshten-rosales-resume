@@ -24,7 +24,7 @@ export default function MobileWindow({ win, icon, children }: MobileWindowProps)
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: '100%' }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
-          className="fixed inset-0 z-50 bg-white dark:bg-slate-800 overflow-hidden"
+          className="fixed inset-0 z-50 bg-white dark:bg-slate-800 overflow-hidden flex flex-col"
           onClick={() => bringToFront(win.id)}
         >
           {/* Mobile window header */}

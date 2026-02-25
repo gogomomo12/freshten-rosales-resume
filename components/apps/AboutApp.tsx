@@ -111,10 +111,10 @@ export default function AboutApp() {
 
           return (
             <div key={i} className="flex hover:bg-slate-900/40 transition-colors">
-              <div className="w-10 md:w-12 shrink-0 text-right pr-2 md:pr-3 py-0.5 text-slate-700 select-none border-r border-slate-800/60 text-xs tabular-nums">
+              <div className="w-8 md:w-12 shrink-0 text-right pr-1.5 md:pr-3 py-0.5 text-slate-700 select-none border-r border-slate-800/60 text-xs tabular-nums">
                 {lineNum}
               </div>
-              <div className={`pl-2 md:pl-4 py-0.5 flex-1 leading-relaxed ${textClass} whitespace-pre overflow-x-auto`}>
+              <div className={`pl-2 md:pl-4 py-0.5 flex-1 leading-relaxed ${textClass} whitespace-pre-wrap break-words min-w-0`}>
                 {line || ' '}
               </div>
             </div>

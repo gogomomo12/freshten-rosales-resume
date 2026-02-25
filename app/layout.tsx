@@ -25,17 +25,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="">
       <head>
         {/* Inline script to prevent theme flash before React hydrates */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                var t = localStorage.getItem('freshten-theme') || 'dark';
+                var t = localStorage.getItem('freshten-theme') || 'light';
                 document.documentElement.className = t === 'dark' ? 'dark' : '';
               } catch(e) {
-                document.documentElement.className = 'dark';
+                document.documentElement.className = '';
               }
             `,
           }}

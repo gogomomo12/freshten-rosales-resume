@@ -30,17 +30,16 @@ interface WindowStore {
 const DEFAULT_OPEN: Record<string, number> = {
   skills: 11,
   about: 12,
-  contact: 13,
   projects: 14,
 }
 
 const buildInitialWindows = (deviceType: 'mobile' | 'tablet' | 'desktop' = 'desktop'): Record<string, WindowState> => {
   const windows: Record<string, WindowState> = {}
-  
+
   // Only auto-open apps on desktop
   const shouldAutoOpen = deviceType === 'desktop'
   const defaultOpenApps = shouldAutoOpen ? DEFAULT_OPEN : {}
-  
+
   APPS.forEach((app) => {
     const defaultZ = defaultOpenApps[app.id]
     windows[app.id] = {
@@ -142,18 +141,20 @@ export const useWindowStore = create<WindowStore>((set, get) => ({
     const newTheme = get().theme === 'dark' ? 'light' : 'dark'
     try {
       localStorage.setItem('freshten-theme', newTheme)
-    } catch {}
+    } catch { }
     document.documentElement.classList.toggle('dark', newTheme === 'dark')
     set({ theme: newTheme })
   },
 
   initTheme: () => {
+    // Only run on client
+    if (typeof window === 'undefined') return
     try {
       const saved = localStorage.getItem('freshten-theme') as 'dark' | 'light' | null
-      const theme = saved || 'dark'
+      const theme = saved || 'light'
       document.documentElement.classList.toggle('dark', theme === 'dark')
       set({ theme })
-    } catch {}
+    } catch { }
   },
 
   initWindows: (deviceType = 'desktop') => {

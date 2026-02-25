@@ -26,7 +26,7 @@ export default function TabletWindow({ win, icon, children }: TabletWindowProps)
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-4 z-50 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden"
+          className="fixed inset-4 z-50 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col"
           onClick={() => bringToFront(win.id)}
         >
           {/* Tablet window header */}

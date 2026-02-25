@@ -162,7 +162,7 @@ export default function ProjectsApp() {
         </div>
 
         {/* User guidance banner */}
-        <div className="mt-3 mx-3 md:mx-5 px-3 py-2 rounded-lg bg-sky-50 dark:bg-sky-500/10 border border-sky-200/60 dark:border-sky-500/20">
+        <div className="mt-3 px-3 md:mx-5 md:px-5 py-2 rounded-lg bg-sky-50 dark:bg-sky-500/10 border border-sky-200/60 dark:border-sky-500/20">
           <div className="flex items-start gap-2">
             <span className="text-sky-500 text-sm mt-0.5">💡</span>
             <div>
@@ -170,7 +170,7 @@ export default function ProjectsApp() {
                 Click any project below to expand and view details
               </p>
               <p className="text-xs text-sky-600/80 dark:text-sky-400/80 mt-1 hidden md:block">
-                Maximize the window (green button) for the best viewing experience
+                Maximize the window <span className="text-green-500">(green button)</span> for the best viewing experience
               </p>
             </div>
           </div>
@@ -186,11 +186,10 @@ export default function ProjectsApp() {
           return (
             <div
               key={project.id}
-              className={`border rounded-xl transition-all ${
-                isEnterprise
-                  ? 'border-amber-200/60 dark:border-amber-500/20 bg-amber-50/30 dark:bg-amber-500/5'
-                  : 'border-slate-100 dark:border-slate-700/60 bg-slate-50/50 dark:bg-slate-900/40'
-              } hover:border-slate-200 dark:hover:border-slate-600/60`}
+              className={`border rounded-xl transition-all ${isEnterprise
+                ? 'border-amber-200/60 dark:border-amber-500/20 bg-amber-50/30 dark:bg-amber-500/5'
+                : 'border-slate-100 dark:border-slate-700/60 bg-slate-50/50 dark:bg-slate-900/40'
+                } hover:border-slate-200 dark:hover:border-slate-600/60`}
             >
               {/* Collapsed header — always visible */}
               <button
@@ -204,39 +203,36 @@ export default function ProjectsApp() {
                         <h3 className="text-sm md:text-base font-semibold text-slate-800 dark:text-slate-100 leading-tight">
                           {project.title}
                         </h3>
-                        <span className={`text-xs font-medium px-1.5 py-0.5 rounded-md border shrink-0 ${
-                          isEnterprise
-                            ? 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 border-amber-200 dark:border-amber-500/20'
-                            : 'text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-500/10 border-sky-100 dark:border-sky-500/20'
-                        }`}>
+                        <span className={`text-xs font-medium px-1.5 py-0.5 rounded-md border shrink-0 ${isEnterprise
+                          ? 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 border-amber-200 dark:border-amber-500/20'
+                          : 'text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-500/10 border-sky-100 dark:border-sky-500/20'
+                          }`}>
                           {project.role}
                         </span>
                       </div>
                       <div className="text-xs text-slate-400 dark:text-slate-500 leading-tight">
-                        {project.employer} · {project.duration} · {project.type}
+                        {project.employer} · {project.duration}
+                        <span className="hidden md:inline"> · {project.type}</span>
                       </div>
                     </div>
                   </div>
 
-                  {/* Metrics */}
-                  <div className="flex gap-1.5 shrink-0 flex-wrap md:flex-nowrap">
+                  {/* Metrics - hidden on mobile to prevent overflow, shown in expanded view */}
+                  <div className="hidden md:flex gap-1.5 shrink-0 flex-nowrap">
                     {project.metrics.map((m) => (
                       <div
                         key={m.label}
-                        className={`text-center px-2 py-1 rounded-lg border min-w-[60px] ${
-                          isEnterprise
-                            ? 'bg-amber-50 dark:bg-amber-500/10 border-amber-100 dark:border-amber-500/20'
-                            : 'bg-sky-50 dark:bg-sky-500/10 border-sky-100 dark:border-sky-500/20'
-                        }`}
+                        className={`text-center px-2 py-1 rounded-lg border min-w-[60px] ${isEnterprise
+                          ? 'bg-amber-50 dark:bg-amber-500/10 border-amber-100 dark:border-amber-500/20'
+                          : 'bg-sky-50 dark:bg-sky-500/10 border-sky-100 dark:border-sky-500/20'
+                          }`}
                       >
-                        <div className={`text-sm font-bold tabular-nums ${
-                          isEnterprise ? 'text-amber-600 dark:text-amber-400' : 'text-sky-600 dark:text-sky-400'
-                        }`}>
+                        <div className={`text-sm font-bold tabular-nums ${isEnterprise ? 'text-amber-600 dark:text-amber-400' : 'text-sky-600 dark:text-sky-400'
+                          }`}>
                           {m.value}
                         </div>
-                        <div className={`text-xs leading-tight ${
-                          isEnterprise ? 'text-amber-500/70' : 'text-sky-500/70'
-                        }`}>
+                        <div className={`text-xs leading-tight ${isEnterprise ? 'text-amber-500/70' : 'text-sky-500/70'
+                          }`}>
                           {m.label}
                         </div>
                       </div>

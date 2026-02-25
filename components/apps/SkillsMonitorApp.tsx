@@ -76,8 +76,8 @@ export default function SkillsMonitorApp() {
         </div>
       </div>
 
-      {/* Table header */}
-      <div className="px-3 md:px-5 py-2 grid grid-cols-[1fr_auto_auto] gap-2 md:gap-4 border-b border-slate-100 dark:border-slate-700/60">
+      {/* Table header — hidden on small screens where rows stack */}
+      <div className="hidden sm:grid px-3 md:px-5 py-2 grid-cols-[1fr_auto_auto] gap-2 md:gap-4 border-b border-slate-100 dark:border-slate-700/60">
         <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Module</span>
         <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest text-right">Uptime</span>
         <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest text-right w-24 md:w-32">Status</span>
@@ -90,8 +90,8 @@ export default function SkillsMonitorApp() {
             key={mod.id}
             className={`px-3 md:px-5 py-3 md:py-4 ${i < MODULES.length - 1 ? 'border-b border-slate-100 dark:border-slate-700/40' : ''}`}
           >
-            {/* Module row */}
-            <div className="grid grid-cols-[1fr_auto_auto] gap-2 md:gap-4 items-start mb-2.5">
+            {/* Module row — desktop: 3-col grid; mobile: stacked */}
+            <div className="hidden sm:grid grid-cols-[1fr_auto_auto] gap-2 md:gap-4 items-start mb-2.5">
               <div className="min-w-0">
                 <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">{mod.name}</div>
                 <div className="text-xs text-slate-400 dark:text-slate-500 mt-0.5 leading-relaxed">{mod.detail}</div>
@@ -104,6 +104,24 @@ export default function SkillsMonitorApp() {
                 <span className="hidden sm:inline">{mod.status}</span>
                 <span className="sm:hidden">OK</span>
               </div>
+            </div>
+            {/* Mobile stacked layout */}
+            <div className="sm:hidden mb-2.5">
+              <div className="flex items-start justify-between gap-2">
+                <div className="min-w-0 flex-1">
+                  <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">{mod.name}</div>
+                  <div className="text-xs text-slate-400 dark:text-slate-500 mt-0.5 leading-relaxed">{mod.detail}</div>
+                </div>
+                <div className={`flex items-center gap-1 px-2 py-1 rounded-md border text-xs font-medium shrink-0 ${statusStyles[mod.statusColor]}`}>
+                  <div className={`w-1.5 h-1.5 rounded-full ${dotStyles[mod.statusColor]} animate-pulse`} />
+                  <span>OK</span>
+                </div>
+              </div>
+              {mod.uptime !== '—' && (
+                <div className="font-mono text-xs text-slate-400 dark:text-slate-500 mt-1">
+                  uptime: {mod.uptime}
+                </div>
+              )}
             </div>
 
             {/* Skills */}

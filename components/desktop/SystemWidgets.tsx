@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useWindowStore } from '@/store/windowStore'
+import MusicWidget from './MusicWidget'
 
 const STATUS_ROWS = [
   ['System', 'Online'],
@@ -70,6 +71,9 @@ export default function SystemWidgets() {
         <span className="text-xl">{theme === 'dark' ? '☀️' : '🌙'}</span>
         <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
       </button>
+
+      {/* Music Widget */}
+      <MusicWidget />
     </div>
   )
 }
