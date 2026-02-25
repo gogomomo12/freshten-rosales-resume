@@ -3,7 +3,7 @@ import { AppDefinition } from '@/types'
 export const APPS: AppDefinition[] = [
   {
     id: 'projects',
-    title: 'Projects.app',
+    title: 'Projects Application',
     icon: '🗂️',
     // Center-foreground: visible as focal point over all others on load
     defaultSize: { width: 850, height: 600 },
@@ -11,7 +11,7 @@ export const APPS: AppDefinition[] = [
   },
   {
     id: 'skills',
-    title: 'SkillsMonitor.app',
+    title: 'My Skills Application',
     icon: '📊',
     // Bottom-left quadrant
     defaultSize: { width: 580, height: 440 },
@@ -19,7 +19,7 @@ export const APPS: AppDefinition[] = [
   },
   {
     id: 'about',
-    title: 'About.txt',
+    title: 'About Me.txt',
     icon: '📄',
     // Top-left quadrant
     defaultSize: { width: 520, height: 380 },
@@ -27,21 +27,21 @@ export const APPS: AppDefinition[] = [
   },
   {
     id: 'hobbies',
-    title: 'Hobbies.app',
+    title: 'My Hobbies',
     icon: '🎯',
     defaultSize: { width: 580, height: 440 },
     defaultPosition: { x: 460, y: 130 },
   },
   {
     id: 'network',
-    title: 'Network.app',
+    title: 'My Network',
     icon: '🌐',
     defaultSize: { width: 360, height: 300 },
     defaultPosition: { x: 520, y: 160 },
   },
   {
     id: 'contact',
-    title: 'ContactIDE.app',
+    title: 'Contact Me',
     icon: '⌨️',
     // Top-right quadrant — taller so Run Code button is always fully visible
     defaultSize: { width: 620, height: 560 },

@@ -45,7 +45,7 @@ export default function SystemWidgets() {
         </div>
         <div className="mt-3 pt-3 border-t border-slate-200/50 dark:border-slate-700/50 flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-xs text-emerald-500 dark:text-emerald-400">Open to New Opportunities</span>
+          <span className="text-md text-emerald-500 dark:text-emerald-400">Open to New Opportunities</span>
         </div>
       </div>
 

@@ -5,7 +5,7 @@ import { useState, useRef, useEffect, useCallback } from 'react'
 const TRACK = {
     title: 'Ambient Focus',
     artist: 'FreshtenOS Radio',
-    src: '/audio/placeholder.mp3',
+    src: '/audio/Ambient-Sound.mp3',
 }
 
 export default function MusicWidget() {
@@ -113,7 +113,7 @@ export default function MusicWidget() {
 
             {hasError && (
                 <div className="text-[10px] text-amber-500 dark:text-amber-400 mt-1">
-                    Add audio file to /audio/placeholder.mp3
+                    Add audio file to /audio/Ambient-Sound.mp3
                 </div>
             )}
 
