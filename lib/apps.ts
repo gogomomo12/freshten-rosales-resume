@@ -5,7 +5,7 @@ export const APPS: AppDefinition[] = [
     id: 'resume',
     title: 'Resume.pdf',
     icon: '📑',
-    href: '/resume.pdf',
+    href: '/Freshten_Rosales_Resume.pdf',
     defaultSize: { width: 0, height: 0 },
     defaultPosition: { x: 0, y: 0 },
   },

@@ -147,7 +147,7 @@ export default function AboutApp() {
           </p>
         </div>
         <a
-          href="/resume.pdf"
+          href="/Freshten_Rosales_Resume.pdf"
           download
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold shrink-0
             bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/30
