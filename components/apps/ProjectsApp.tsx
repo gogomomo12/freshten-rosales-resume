@@ -14,6 +14,7 @@ type Project = {
   tech: string[]
   metrics: { value: string; label: string }[]
   type: string
+  url?: string
 }
 
 const PROJECTS: Project[] = [
@@ -36,6 +37,7 @@ const PROJECTS: Project[] = [
       { value: '99.99%', label: 'Accuracy Rate' },
       { value: 'PHP/USD', label: 'Multi-Currency' },
     ],
+    url: 'https://eqquipme.lexcode.com/',
   },
   {
     id: 'qurious',
@@ -56,6 +58,7 @@ const PROJECTS: Project[] = [
       { value: '1,000', label: 'Concurrent Clients' },
       { value: '500+', label: 'Daily Active Users' },
     ],
+    url: 'https://qurious.eqqui.com/',
   },
   {
     id: 'kabayanxpress',
@@ -76,6 +79,7 @@ const PROJECTS: Project[] = [
       { value: 'Mobile-First', label: 'Platform' },
       { value: 'Real-Time', label: 'Status Updates' },
     ],
+    url: 'https://kabayan.lexcode.com/',
   },
   {
     id: 'english-tutor',
@@ -96,6 +100,7 @@ const PROJECTS: Project[] = [
       { value: 'Real-Time', label: 'Data Sync' },
       { value: 'AI-Powered', label: 'Tutoring Engine' },
     ],
+    url: 'https://lexyapp.ai/',
   },
   {
     id: 'lexcode-website',
@@ -116,6 +121,7 @@ const PROJECTS: Project[] = [
       { value: '2,000+', label: 'Monthly Visitors' },
       { value: '3s', label: 'Load Time' },
     ],
+    url: 'https://ph.lexcode.com/',
   },
   {
     id: 'oracle-middleware',
@@ -239,8 +245,8 @@ export default function ProjectsApp() {
                     ))}
                   </div>
 
-                  <span className="text-slate-400 dark:text-slate-600 text-sm shrink-0 mt-0.5">
-                    {isOpen ? '▲' : '▼'}
+                  <span className={`text-slate-400 dark:text-slate-600 text-sm shrink-0 mt-0.5 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+                    ▼
                   </span>
                 </div>
 
@@ -260,36 +266,54 @@ export default function ProjectsApp() {
                 </div>
               </button>
 
-              {/* Expanded details */}
-              {isOpen && (
-                <div className="px-3 md:px-4 pb-3 md:pb-4 border-t border-slate-100 dark:border-slate-700/40 pt-3">
-                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-3">
-                    {project.description}
-                  </p>
+              {/* Expanded details — grid-rows trick for smooth height animation */}
+              <div className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+                <div className="overflow-hidden">
+                  <div className="px-3 md:px-4 pb-3 md:pb-4 border-t border-slate-100 dark:border-slate-700/40 pt-3">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-3">
+                      {project.description}
+                    </p>
 
-                  <div className="space-y-3">
-                    {/* Problem */}
-                    <div className="p-3 bg-slate-900/5 dark:bg-slate-950/40 rounded-lg border border-slate-100 dark:border-slate-800">
-                      <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1.5">
-                        Problem Solved
-                      </div>
-                      <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                        {project.problem}
-                      </p>
-                    </div>
+                    {project.url && (
+                      <a
+                        href={project.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border mb-3 transition-colors ${isEnterprise
+                          ? 'bg-amber-50 dark:bg-amber-500/10 border-amber-200 dark:border-amber-500/30 text-amber-600 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-500/20'
+                          : 'bg-sky-50 dark:bg-sky-500/10 border-sky-200 dark:border-sky-500/30 text-sky-600 dark:text-sky-400 hover:bg-sky-100 dark:hover:bg-sky-500/20'
+                        }`}
+                      >
+                        <span>🔗</span>
+                        Visit Live Project
+                      </a>
+                    )}
 
-                    {/* Architecture */}
-                    <div className="p-3 bg-slate-900/5 dark:bg-slate-950/40 rounded-lg border border-slate-100 dark:border-slate-800">
-                      <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1.5">
-                        Architecture
+                    <div className="space-y-3">
+                      {/* Problem */}
+                      <div className="p-3 bg-slate-900/5 dark:bg-slate-950/40 rounded-lg border border-slate-100 dark:border-slate-800">
+                        <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1.5">
+                          Problem Solved
+                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                          {project.problem}
+                        </p>
                       </div>
-                      <p className="text-xs text-slate-600 dark:text-slate-300 font-mono leading-relaxed break-words">
-                        {project.architecture}
-                      </p>
+
+                      {/* Architecture */}
+                      <div className="p-3 bg-slate-900/5 dark:bg-slate-950/40 rounded-lg border border-slate-100 dark:border-slate-800">
+                        <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1.5">
+                          Architecture
+                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-300 font-mono leading-relaxed break-words">
+                          {project.architecture}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              )}
+              </div>
             </div>
           )
         })}
