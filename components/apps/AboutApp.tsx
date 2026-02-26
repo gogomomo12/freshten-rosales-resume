@@ -139,11 +139,22 @@ export default function AboutApp() {
   return (
     <div className="h-full flex flex-col bg-white dark:bg-slate-800">
       {/* Header */}
-      <div className="px-5 py-4 border-b border-slate-100 dark:border-slate-700/60 shrink-0">
-        <h2 className="text-base font-semibold text-slate-800 dark:text-slate-100">About Me</h2>
-        <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">
-          Profile, experience, education & interests
-        </p>
+      <div className="px-5 py-4 border-b border-slate-100 dark:border-slate-700/60 shrink-0 flex items-center justify-between gap-3">
+        <div>
+          <h2 className="text-base font-semibold text-slate-800 dark:text-slate-100">About Me</h2>
+          <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">
+            Profile, experience, education & interests
+          </p>
+        </div>
+        <a
+          href="/resume.pdf"
+          download
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold shrink-0
+            bg-sky-50 dark:bg-sky-500/10 border border-sky-200 dark:border-sky-500/30
+            text-sky-600 dark:text-sky-400 hover:bg-sky-100 dark:hover:bg-sky-500/20 transition-colors"
+        >
+          ⬇ Resume
+        </a>
       </div>
 
       {/* Content */}

@@ -2,6 +2,14 @@ import { AppDefinition } from '@/types'
 
 export const APPS: AppDefinition[] = [
   {
+    id: 'resume',
+    title: 'Resume.pdf',
+    icon: '📑',
+    href: '/resume.pdf',
+    defaultSize: { width: 0, height: 0 },
+    defaultPosition: { x: 0, y: 0 },
+  },
+  {
     id: 'projects',
     title: 'Projects Application',
     icon: '🗂️',

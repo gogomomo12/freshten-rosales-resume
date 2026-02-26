@@ -12,6 +12,7 @@ export type AppDefinition = {
   id: string
   title: string
   icon: string
+  href?: string
   defaultSize: { width: number; height: number }
   defaultPosition: { x: number; y: number }
 }
