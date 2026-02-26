@@ -79,8 +79,8 @@ export default function SkillsMonitorApp() {
       {/* Table header — hidden on small screens where rows stack */}
       <div className="hidden sm:grid px-3 md:px-5 py-2 grid-cols-[1fr_auto_auto] gap-2 md:gap-4 border-b border-slate-100 dark:border-slate-700/60">
         <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest">Module</span>
-        <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest text-right">Uptime</span>
-        <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest text-right w-24 md:w-32">Status</span>
+        <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest text-right w-14">Uptime</span>
+        <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest text-right w-36">Status</span>
       </div>
 
       {/* Modules */}
@@ -96,13 +96,15 @@ export default function SkillsMonitorApp() {
                 <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">{mod.name}</div>
                 <div className="text-xs text-slate-400 dark:text-slate-500 mt-0.5 leading-relaxed">{mod.detail}</div>
               </div>
-              <div className="font-mono text-xs text-slate-500 dark:text-slate-400 text-right tabular-nums pt-0.5 shrink-0">
+              <div className="font-mono text-xs text-slate-500 dark:text-slate-400 text-right tabular-nums pt-0.5 shrink-0 w-14">
                 {mod.uptime}
               </div>
-              <div className={`flex items-center gap-1.5 px-2 py-1 rounded-md border text-xs font-medium w-24 md:w-32 justify-end shrink-0 ${statusStyles[mod.statusColor]}`}>
-                <div className={`w-1.5 h-1.5 rounded-full ${dotStyles[mod.statusColor]} animate-pulse`} />
-                <span className="hidden sm:inline">{mod.status}</span>
-                <span className="sm:hidden">OK</span>
+              <div className="w-36 flex justify-end shrink-0">
+                <div className={`flex items-center gap-1.5 px-2 py-1 rounded-md border text-xs font-medium whitespace-nowrap ${statusStyles[mod.statusColor]}`}>
+                  <div className={`w-1.5 h-1.5 rounded-full ${dotStyles[mod.statusColor]} animate-pulse`} />
+                  <span className="hidden sm:inline">{mod.status}</span>
+                  <span className="sm:hidden">OK</span>
+                </div>
               </div>
             </div>
             {/* Mobile stacked layout */}
