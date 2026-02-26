@@ -19,18 +19,10 @@ export const APPS: AppDefinition[] = [
   },
   {
     id: 'about',
-    title: 'About Me.txt',
+    title: 'About Me',
     icon: '📄',
-    // Top-left quadrant
-    defaultSize: { width: 520, height: 380 },
-    defaultPosition: { x: 110, y: 30 }, // Top Left
-  },
-  {
-    id: 'hobbies',
-    title: 'My Hobbies',
-    icon: '🎯',
-    defaultSize: { width: 580, height: 440 },
-    defaultPosition: { x: 460, y: 130 },
+    defaultSize: { width: 600, height: 540 },
+    defaultPosition: { x: 110, y: 30 },
   },
   {
     id: 'network',

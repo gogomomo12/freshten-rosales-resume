@@ -2,36 +2,36 @@
 
 const HOBBIES = [
   {
-    icon: '📷',
-    title: 'Photography',
-    subtitle: 'Structured visual planning',
+    icon: '🎮',
+    title: 'Gaming',
+    subtitle: 'Strategy, reflexes & storytelling',
     description:
-      'Approach photography like a system design problem — lighting conditions, composition, timing, and post-processing as configurable parameters. Each shoot is a planned workflow.',
-    tags: ['Composition', 'Manual Settings', 'Post-Processing'],
+      'Whether it\'s competitive multiplayer or story-driven RPGs, gaming sharpens problem-solving instincts and keeps the mind sharp. Always up for a session.',
+    tags: ['RPG', 'Multiplayer', 'Strategy'],
   },
   {
-    icon: '🌍',
-    title: 'Language Systems',
-    subtitle: 'Pattern recognition across cultures',
+    icon: '📺',
+    title: 'Anime & Horror Movies',
+    subtitle: 'Storytelling across genres',
     description:
-      'Studying languages through the lens of structural patterns — grammar as type systems, vocabulary as API surfaces. Currently exploring Japanese and Spanish syntax.',
-    tags: ['Japanese', 'Spanish', 'Linguistics'],
+      'Big fan of well-crafted narratives — from epic anime arcs to horror films that keep you on edge. Appreciating how great stories are structured and paced.',
+    tags: ['Anime', 'Horror', 'Movies'],
   },
   {
-    icon: '🎌',
-    title: 'Cultural Immersion',
-    subtitle: 'Contextual understanding',
+    icon: '🤝',
+    title: 'Hangouts',
+    subtitle: 'Always down for good company',
     description:
-      'Deep interest in how cultural systems shape communication patterns, design aesthetics, and problem-solving frameworks across different regions and traditions.',
-    tags: ['East Asia', 'Mediterranean', 'Southeast Asia'],
+      'Whether it\'s a chill night out or spontaneous plans with friends, I\'m always ready. Good conversations and great company recharge me outside of work.',
+    tags: ['Social', 'Friends', 'Good Vibes'],
   },
   {
-    icon: '🍷',
-    title: 'Food & Wine Pairing',
-    subtitle: 'Flavor systems thinking',
+    icon: '🏃',
+    title: 'Jogging',
+    subtitle: 'Clearing the mind, one run at a time',
     description:
-      'Approaching culinary pairing as a pattern-matching exercise — understanding why certain flavor profiles interact, acidity balances, and sensory contrasts work together.',
-    tags: ['Flavor Profiles', 'Wine Regions', 'Pairing Logic'],
+      'Jogging is my reset button — it clears my head, boosts energy, and gives me space to think through ideas away from the screen.',
+    tags: ['Fitness', 'Outdoors', 'Mindfulness'],
   },
 ]
 

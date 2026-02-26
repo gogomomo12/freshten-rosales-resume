@@ -26,10 +26,10 @@ interface WindowStore {
 }
 
 // Windows open on first load — z-index = stacking order (higher = in front)
-// skills (back) → about → contact → projects (front/focal)
+// about (back) → skills → projects (front/focal)
 const DEFAULT_OPEN: Record<string, number> = {
-  skills: 11,
-  about: 12,
+  about: 11,
+  skills: 12,
   projects: 14,
 }
 
