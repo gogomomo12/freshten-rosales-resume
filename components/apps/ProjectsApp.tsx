@@ -15,6 +15,9 @@ type Project = {
   metrics: { value: string; label: string }[]
   type: string
   url?: string
+  image?: string
+  thumbnail: string
+  thumbBg: string
 }
 
 const PROJECTS: Project[] = [
@@ -38,6 +41,9 @@ const PROJECTS: Project[] = [
       { value: 'PHP/USD', label: 'Multi-Currency' },
     ],
     url: 'https://eqquipme.lexcode.com/',
+    image: '/images/eqquipme.png',
+    thumbnail: '📋',
+    thumbBg: 'from-sky-400 to-blue-600',
   },
   {
     id: 'qurious',
@@ -59,6 +65,9 @@ const PROJECTS: Project[] = [
       { value: '500+', label: 'Daily Active Users' },
     ],
     url: 'https://qurious.eqqui.com/',
+    image: '/images/qurious.png',
+    thumbnail: '🌐',
+    thumbBg: 'from-violet-400 to-purple-600',
   },
   {
     id: 'kabayanxpress',
@@ -80,6 +89,9 @@ const PROJECTS: Project[] = [
       { value: 'Real-Time', label: 'Status Updates' },
     ],
     url: 'https://kabayan.lexcode.com/',
+    image: '/images/kabayan.png',
+    thumbnail: '✈️',
+    thumbBg: 'from-emerald-400 to-teal-600',
   },
   {
     id: 'english-tutor',
@@ -101,6 +113,9 @@ const PROJECTS: Project[] = [
       { value: 'AI-Powered', label: 'Tutoring Engine' },
     ],
     url: 'https://lexyapp.ai/',
+    image: '/images/lexy.png',
+    thumbnail: '🤖',
+    thumbBg: 'from-amber-400 to-orange-500',
   },
   {
     id: 'lexcode-website',
@@ -122,6 +137,9 @@ const PROJECTS: Project[] = [
       { value: '3s', label: 'Load Time' },
     ],
     url: 'https://ph.lexcode.com/',
+    image: '/images/lexcode.png',
+    thumbnail: '🏢',
+    thumbBg: 'from-slate-400 to-slate-600',
   },
   {
     id: 'oracle-middleware',
@@ -142,6 +160,9 @@ const PROJECTS: Project[] = [
       { value: 'Enterprise', label: 'Banking Scale' },
       { value: 'Zero', label: 'Critical Downtime' },
     ],
+    image: '/images/oracle-fusion-middleware.png',
+    thumbnail: '🏦',
+    thumbBg: 'from-amber-500 to-red-500',
   },
 ]
 
@@ -199,70 +220,85 @@ export default function ProjectsApp() {
             >
               {/* Collapsed header — always visible */}
               <button
-                className="w-full text-left p-4"
+                className="w-full text-left p-3 md:p-4"
                 onClick={() => setExpanded(isOpen ? null : project.id)}
               >
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex flex-col gap-1">
-                      <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className="text-sm md:text-base font-semibold text-slate-800 dark:text-slate-100 leading-tight">
-                          {project.title}
-                        </h3>
-                        <span className={`text-xs font-medium px-1.5 py-0.5 rounded-md border shrink-0 ${isEnterprise
-                          ? 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 border-amber-200 dark:border-amber-500/20'
-                          : 'text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-500/10 border-sky-100 dark:border-sky-500/20'
-                          }`}>
-                          {project.role}
+                <div className="flex gap-3 items-stretch">
+                  {/* Thumbnail — left side */}
+                  <div className={`w-16 md:w-20 shrink-0 rounded-lg overflow-hidden bg-linear-to-br ${project.thumbBg} flex flex-col items-center justify-center gap-1 self-stretch min-h-20`}>
+                    {project.image ? (
+                      <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+                    ) : (
+                      <>
+                        <span className="text-2xl md:text-3xl">{project.thumbnail}</span>
+                        <span className="text-[9px] text-white/70 font-mono uppercase tracking-wider hidden md:block">preview</span>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Content — right side */}
+                  <div className="flex-1 min-w-0 flex flex-col justify-between">
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-col gap-1">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <h3 className="text-sm md:text-base font-semibold text-slate-800 dark:text-slate-100 leading-tight">
+                              {project.title}
+                            </h3>
+                            <span className={`text-xs font-medium px-1.5 py-0.5 rounded-md border shrink-0 ${isEnterprise
+                              ? 'text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-500/10 border-amber-200 dark:border-amber-500/20'
+                              : 'text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-500/10 border-sky-100 dark:border-sky-500/20'
+                              }`}>
+                              {project.role}
+                            </span>
+                          </div>
+                          <div className="text-xs text-slate-400 dark:text-slate-500 leading-tight">
+                            {project.employer} · {project.duration}
+                            <span className="hidden md:inline"> · {project.type}</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Metrics */}
+                      <div className="hidden md:flex gap-1.5 shrink-0 flex-nowrap">
+                        {project.metrics.map((m) => (
+                          <div
+                            key={m.label}
+                            className={`text-center px-2 py-1 rounded-lg border min-w-15 ${isEnterprise
+                              ? 'bg-amber-50 dark:bg-amber-500/10 border-amber-100 dark:border-amber-500/20'
+                              : 'bg-sky-50 dark:bg-sky-500/10 border-sky-100 dark:border-sky-500/20'
+                              }`}
+                          >
+                            <div className={`text-sm font-bold tabular-nums ${isEnterprise ? 'text-amber-600 dark:text-amber-400' : 'text-sky-600 dark:text-sky-400'}`}>
+                              {m.value}
+                            </div>
+                            <div className={`text-xs leading-tight ${isEnterprise ? 'text-amber-500/70' : 'text-sky-500/70'}`}>
+                              {m.label}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <span className={`text-slate-400 dark:text-slate-600 text-sm shrink-0 mt-0.5 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
+                        ▼
+                      </span>
+                    </div>
+
+                    {/* Tech stack */}
+                    <div className="flex flex-wrap gap-1 mt-2.5">
+                      {project.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="px-2 py-0.5 text-xs font-medium rounded-md
+                            bg-slate-100 dark:bg-slate-700/60
+                            text-slate-600 dark:text-slate-300
+                            border border-slate-200/60 dark:border-slate-700"
+                        >
+                          {t}
                         </span>
-                      </div>
-                      <div className="text-xs text-slate-400 dark:text-slate-500 leading-tight">
-                        {project.employer} · {project.duration}
-                        <span className="hidden md:inline"> · {project.type}</span>
-                      </div>
+                      ))}
                     </div>
                   </div>
-
-                  {/* Metrics - hidden on mobile to prevent overflow, shown in expanded view */}
-                  <div className="hidden md:flex gap-1.5 shrink-0 flex-nowrap">
-                    {project.metrics.map((m) => (
-                      <div
-                        key={m.label}
-                        className={`text-center px-2 py-1 rounded-lg border min-w-[60px] ${isEnterprise
-                          ? 'bg-amber-50 dark:bg-amber-500/10 border-amber-100 dark:border-amber-500/20'
-                          : 'bg-sky-50 dark:bg-sky-500/10 border-sky-100 dark:border-sky-500/20'
-                          }`}
-                      >
-                        <div className={`text-sm font-bold tabular-nums ${isEnterprise ? 'text-amber-600 dark:text-amber-400' : 'text-sky-600 dark:text-sky-400'
-                          }`}>
-                          {m.value}
-                        </div>
-                        <div className={`text-xs leading-tight ${isEnterprise ? 'text-amber-500/70' : 'text-sky-500/70'
-                          }`}>
-                          {m.label}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <span className={`text-slate-400 dark:text-slate-600 text-sm shrink-0 mt-0.5 transition-transform duration-300 ${isOpen ? 'rotate-180' : 'rotate-0'}`}>
-                    ▼
-                  </span>
-                </div>
-
-                {/* Tech stack — always visible */}
-                <div className="flex flex-wrap gap-1 mt-2.5">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="px-2 py-0.5 text-xs font-medium rounded-md
-                        bg-slate-100 dark:bg-slate-700/60
-                        text-slate-600 dark:text-slate-300
-                        border border-slate-200/60 dark:border-slate-700"
-                    >
-                      {t}
-                    </span>
-                  ))}
                 </div>
               </button>
 
@@ -306,7 +342,7 @@ export default function ProjectsApp() {
                         <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1.5">
                           Architecture
                         </div>
-                        <p className="text-xs text-slate-600 dark:text-slate-300 font-mono leading-relaxed break-words">
+                        <p className="text-xs text-slate-600 dark:text-slate-300 font-mono leading-relaxed wrap-break-word">
                           {project.architecture}
                         </p>
                       </div>
